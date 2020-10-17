@@ -78,16 +78,20 @@ namespace AsyncTest
             //    Thread.Sleep(5000);
             //};
             Action b = new Action(Entah);
-            Task t = new Task(b);
-            t.Start();
-            label1.Text = "START ASYNC";
+            //Task t = new Task(b);
+            //t.Start();
+            //label1.Text = "START ASYNC";
 
-            t.Wait();
-            label1.Text = "DONE ASYNC";
+            //t.Wait();
+            //label1.Text = "DONE ASYNC";
 
 
             //Task<int> task = HandleFileAsync();
+            label1.Text = "START ASYNC";
+            await Task.Run(b);
 
+            Task.WaitAll();
+            label1.Text = "DONE ASYNC";
         }
 
     }
